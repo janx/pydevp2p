@@ -503,9 +503,9 @@ class DiscoveryProtocol(kademlia.WireInterface):
             n = list(n)
             nodeid = n.pop()
             address = Address.from_endpoint(*n)
-            node = self.get_node(nodeid, address)
-            assert node.address
-            neighbours.append(node)
+            _node = self.get_node(nodeid, address)
+            assert _node.address
+            neighbours.append(_node)
         self.kademlia.recv_neighbours(node, neighbours)
 
 
